@@ -1,22 +1,21 @@
-const playButton = document.getElementsByClassName("play")[0];
-const lapButton = document.getElementsByClassName("lap")[0];
-const resetButton = document.getElementsByClassName("reset")[0];
-const clearButton = document.getElementsByClassName("lap-clear-button")[0];
+const playButton = document.getElementsByClassName("playbtn")[0];
+const clearButton = document.getElementsByClassName("lap-clear-btn")[0];
+const resetButton = document.getElementsByClassName("resetbtn")[0];
+const lapButton = document.getElementsByClassName("lapbtn")[0];
+const second = document.getElementsByClassName("second")[0];
 const minute = document.getElementsByClassName("minute")[0];
-const second = document.getElementsByClassName("sec")[0];
-const centiSecond = document.getElementsByClassName("msec")[0];
 const laps = document.getElementsByClassName("laps")[0];
-const bg = document.getElementsByClassName("outer-circle")[0];
+const centiSecond = document.getElementsByClassName("msec")[0];
 
-let isPlay=false;
 let secCounter=0;
-let min;
-let sec;
-let centiSec;
+let lapItem=0;
 let centiCounter=0;
 let minCounter=0;
-let lapItem=0;
+let isPlay=false;
 let isReset=false;
+let centiSec;
+let sec;
+let min;
 
 
 const toggleButton = () => {
@@ -28,8 +27,7 @@ const toggleButton = () => {
 const play = () => {
     if(!isPlay && !isReset){
         playButton.innerHTML= "Pause";
-        bg.classList.add("animation-bg");
-
+        
         min= setInterval(() => {
             minute.innerHTML=`${++minCounter} :`;
         }, 60*1000);
@@ -59,7 +57,6 @@ const play = () => {
         clearInterval(centiSec);
         isPlay=false;
         isReset=false;
-        bg.classList.remove("animation-bg");
     }
     toggleButton();
 }
